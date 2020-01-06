@@ -1,5 +1,5 @@
-.\objects\beep.o: beep.c
-.\objects\beep.o: beep.h
+.\objects\beep.o: hardware\beep.c
+.\objects\beep.o: hardware\beep.h
 .\objects\beep.o: .\system\sys\sys.h
 .\objects\beep.o: .\system\sys\stm32f10x.h
 .\objects\beep.o: .\system\sys\core_cm3.h

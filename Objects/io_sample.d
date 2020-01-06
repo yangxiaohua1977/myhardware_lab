@@ -9,6 +9,6 @@
 .\objects\io_sample.o: .\system\delay\delay.h
 .\objects\io_sample.o: .\hardware\led.h
 .\objects\io_sample.o: .\system\gpio\gpio.h
-.\objects\io_sample.o: beep.h
-.\objects\io_sample.o: button.h
+.\objects\io_sample.o: .\hardware\beep.h
+.\objects\io_sample.o: .\hardware\button.h
 .\objects\io_sample.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

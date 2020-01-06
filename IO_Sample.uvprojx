@@ -423,12 +423,12 @@
             <File>
               <FileName>beep.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\beep.c</FilePath>
+              <FilePath>.\hardware\beep.c</FilePath>
             </File>
             <File>
               <FileName>button.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\button.c</FilePath>
+              <FilePath>.\hardware\button.c</FilePath>
             </File>
           </Files>
         </Group>

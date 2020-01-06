@@ -1,5 +1,5 @@
-.\objects\button.o: button.c
-.\objects\button.o: button.h
+.\objects\button.o: hardware\button.c
+.\objects\button.o: hardware\button.h
 .\objects\button.o: .\system\sys\sys.h
 .\objects\button.o: .\system\sys\stm32f10x.h
 .\objects\button.o: .\system\sys\core_cm3.h
