@@ -1,0 +1,14 @@
+--cpu Cortex-M3
+".\objects\delay.o"
+".\objects\sys.o"
+".\objects\usart.o"
+".\objects\startup_stm32f10x_hd.o"
+".\objects\gpio.o"
+".\objects\io_sample.o"
+".\objects\led.o"
+".\objects\beep.o"
+".\objects\button.o"
+--strict --scatter ".\Objects\IO_Sample.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\IO_Sample.map" -o .\Objects\IO_Sample.axf
