@@ -76,7 +76,7 @@ int gpio_init(int gpio_bank, int gpio_num, int gpio_mode, int gpio_cfg)
 				gpio_num -= 8;
 				GPIOA->CRH &= ~(0x0f << (gpio_num * 4));
 				GPIOA->CRH |= num << (gpio_num * 4);
-			}
+			}	
 			break;
 		case 0x0B:   //GPIO B
 			if(gpio_num < 8) {
