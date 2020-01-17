@@ -1,0 +1,9 @@
+.\objects\smard_card.o: system\smartcard\smard_card.c
+.\objects\smard_card.o: system\smartcard\smart_card.h
+.\objects\smard_card.o: .\system\sys\sys.h
+.\objects\smard_card.o: .\system\sys\stm32f10x.h
+.\objects\smard_card.o: .\system\sys\core_cm3.h
+.\objects\smard_card.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\smard_card.o: .\system\sys\system_stm32f10x.h
+.\objects\smard_card.o: .\system\uart\uart.h
+.\objects\smard_card.o: .\system\gpio\gpio.h

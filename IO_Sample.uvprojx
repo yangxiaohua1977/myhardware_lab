@@ -332,7 +332,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\system\delay;.\system\sys;.\system\usart;.\hardware;.\system\gpio</IncludePath>
+              <IncludePath>.\system\delay;.\system\sys;.\system\usart;.\hardware;.\system\gpio;.\system\smartcard;.\system\uart;.\system\irda;.\system\lin</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -404,6 +404,21 @@
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\system\uart\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>smard_card.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\system\smartcard\smard_card.c</FilePath>
+            </File>
+            <File>
+              <FileName>irda.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\system\irda\irda.c</FilePath>
+            </File>
+            <File>
+              <FileName>lin.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\system\lin\lin.c</FilePath>
             </File>
           </Files>
         </Group>

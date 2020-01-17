@@ -56,6 +56,7 @@ typedef struct {
 } USART_DMA;
 typedef struct {
 	int enable;  //=0, disabled; =1, enabled; refer to USART_CR3.BIT5
+	int clk_en; //=0, disable; =1, enable clock; refer to USART_CR2.BIT11	
 	int nack;     //refer to USART_CR3.BIT5
 	int guard_time; //refer to USART_GTPR.bit[8:15]
 } SMART_CARD;
@@ -83,42 +84,7 @@ struct UART_CFG
 	USART_MODE uart_work;	
 	USART_DMA  uart_dma;
 };
-struct IRDA_CFG
-{
-	int uart_num;			//uart number
-	int pin_remap;		//uart pin remap, for uart1 and uart2, pin_remap = 0 or 1; 
-										//for uart3, in_remap  0, 1 or 3;
-	int pclk_freq;    //peripheral clock for uart
-	int baudrate;			//baud rate, bps
-	USART_MODE uart_work;	
-	USART_DMA  irda_dma;
-	IRDA irda_work;
-};
-struct SMART_CARD_CFG
-{
-	int uart_num;			//uart number
-	int pin_remap;		//uart pin remap, for uart1 and uart2, pin_remap = 0 or 1; 
-										//for uart3, in_remap  0, 1 or 3;
-	int pclk_freq;    //peripheral clock for uart
-	int baudrate;			//baud rate, bps
-	USART_MODE uart_work;	
-	USART_DMA  uart_dma;
-	SMART_CARD smart_work;
-};
-struct LIN_CARD_CFG
-{
-	int uart_num;			//uart number
-	int pin_remap;		//uart pin remap, for uart1 and uart2, pin_remap = 0 or 1; 
-										//for uart3, in_remap  0, 1 or 3;
-	int pclk_freq;    //peripheral clock for uart
-	int baudrate;			//baud rate, bps
-	USART_MODE uart_work;	
-	USART_DMA  lin_dma;
-	LIN lin_work;
-};
 
 int uart_initialize(void *);
-int smartcard_initialize(void *);
-int irda_initialize(void *);
-int lin_initialize(void *);
+
 #endif
