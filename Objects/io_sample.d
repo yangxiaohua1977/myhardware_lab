@@ -4,7 +4,7 @@
 .\objects\io_sample.o: .\system\sys\core_cm3.h
 .\objects\io_sample.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\io_sample.o: .\system\sys\system_stm32f10x.h
-.\objects\io_sample.o: .\system\usart\usart.h
+.\objects\io_sample.o: .\system\uart\uart.h
 .\objects\io_sample.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\io_sample.o: .\system\delay\delay.h
 .\objects\io_sample.o: .\hardware\led.h

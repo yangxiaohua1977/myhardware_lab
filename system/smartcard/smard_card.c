@@ -337,4 +337,5 @@ int smartcard_initialize(void *p)
 				MY_NVIC_Init(3,3,USART3_IRQn,2);
 			}				
 	}
+	return 0;
 }

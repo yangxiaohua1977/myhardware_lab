@@ -386,11 +386,6 @@
               <FilePath>.\system\sys\sys.c</FilePath>
             </File>
             <File>
-              <FileName>usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\system\usart\usart.c</FilePath>
-            </File>
-            <File>
               <FileName>startup_stm32f10x_hd.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\startup_stm32f10x_hd.s</FilePath>

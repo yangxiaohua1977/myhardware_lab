@@ -12,60 +12,130 @@
  *			2020-01-10, rev00, initial
  *
  */
-#include "uart.h"
+#include "uart.h" 
 #include "gpio.h"
 
 static const struct GPIO_CFG uart1_gpio_configuration[4] = {
 	//REGMAP = 0
-	{0x0A, 0x09, OUT_MODE_50MHZ, PUSH_PULL},   //uart1 tx, PA9
-	{0x0A, 0x0A, INPUT_MODE, PUSH_PULL},			 //uart1 rx, PA10
+	{0x0A, 0x09, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart1 tx, PA9
+	{0x0A, 0x0A, INPUT_MODE, PULL_UP_DN},			 //uart1 rx, PA10
 	//REGMAP = 1
-	{0x0B, 0x06, OUT_MODE_50MHZ, PUSH_PULL},   //uart1 tx, PB6
-	{0x0B, 0x07, INPUT_MODE, PUSH_PULL},			 //uart1 rx, PB7
+	{0x0B, 0x06, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart1 tx, PB6
+	{0x0B, 0x07, INPUT_MODE, PULL_UP_DN},			 //uart1 rx, PB7
 };
 const struct GPIO_CFG uart2_gpio_configuration[10] = {
 	//REGMAP = 0
-	{0x0A, 0x00, INPUT_MODE, PUSH_PULL},   //uart2 cts, PA0
-	{0x0A, 0x01, OUT_MODE_50MHZ, PUSH_PULL},			 //uart2 rts, PA1
-	{0x0A, 0x02, OUT_MODE_50MHZ, PUSH_PULL},   //uart2 tx, PA2
-	{0x0A, 0x03, INPUT_MODE, PUSH_PULL},			 //uart2 rx, PA3
-	{0x0A, 0x04, OUT_MODE_50MHZ, PUSH_PULL},			 //uart2 ck, PA4
+	{0x0A, 0x00, INPUT_MODE, PULL_UP_DN},   //uart2 cts, PA0
+	{0x0A, 0x01, OUT_MODE_50MHZ, SEC_PUSH_PULL},			 //uart2 rts, PA1
+	{0x0A, 0x02, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart2 tx, PA2
+	{0x0A, 0x03, INPUT_MODE, PULL_UP_DN},			 //uart2 rx, PA3
+	{0x0A, 0x04, OUT_MODE_50MHZ, SEC_PUSH_PULL},			 //uart2 ck, PA4
 	//REGMAP = 1
-	{0x0d, 0x03, INPUT_MODE, PUSH_PULL},   		 //uart2 cts, PA0
-	{0x0d, 0x04, OUT_MODE_50MHZ, PUSH_PULL},	 //uart2 rts, PA1
-	{0x0d, 0x05, OUT_MODE_50MHZ, PUSH_PULL},   //uart2 tx, PA2
-	{0x0d, 0x06, INPUT_MODE, PUSH_PULL},			 //uart2 rx, PA3
-	{0x0d, 0x07, OUT_MODE_50MHZ, PUSH_PULL},	 //uart2 ck, PA4	
+	{0x0d, 0x03, INPUT_MODE, PULL_UP_DN},   		 //uart2 cts, PA0
+	{0x0d, 0x04, OUT_MODE_50MHZ, SEC_PUSH_PULL},	 //uart2 rts, PA1
+	{0x0d, 0x05, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart2 tx, PA2
+	{0x0d, 0x06, INPUT_MODE, PULL_UP_DN},			 //uart2 rx, PA3
+	{0x0d, 0x07, OUT_MODE_50MHZ, SEC_PUSH_PULL},	 //uart2 ck, PA4	
 };
 const struct GPIO_CFG uart3_gpio_configuration[15] = {
 	//REGMAP = 00
-	{0x0b, 0x0d, INPUT_MODE, PUSH_PULL},   		 //uart2 cts, PB13
-	{0x0b, 0x0e, OUT_MODE_50MHZ, PUSH_PULL},	 //uart2 rts, PB14
-	{0x0b, 0x0a, OUT_MODE_50MHZ, PUSH_PULL},   //uart2 tx, PB10
-	{0x0b, 0x0b, INPUT_MODE, PUSH_PULL},			 //uart2 rx, PB11
-	{0x0b, 0x0c, OUT_MODE_50MHZ, PUSH_PULL},	 //uart2 ck, PB12
+	{0x0b, 0x0d, INPUT_MODE, PULL_UP_DN},   		 //uart2 cts, PB13
+	{0x0b, 0x0e, OUT_MODE_50MHZ, SEC_PUSH_PULL},	 //uart2 rts, PB14
+	{0x0b, 0x0a, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart2 tx, PB10
+	{0x0b, 0x0b, INPUT_MODE, PULL_UP_DN},			 //uart2 rx, PB11
+	{0x0b, 0x0c, OUT_MODE_50MHZ, SEC_PUSH_PULL},	 //uart2 ck, PB12
 	//REGMAP = 01
-	{0x0b, 0x0d, INPUT_MODE, PUSH_PULL},   		 //uart2 cts, PB13
-	{0x0b, 0x0e, OUT_MODE_50MHZ, PUSH_PULL},	 //uart2 rts, PB14
-	{0x0C, 0x0a, OUT_MODE_50MHZ, PUSH_PULL},   //uart2 tx, PC10
-	{0x0C, 0x0b, INPUT_MODE, PUSH_PULL},			 //uart2 rx, PC11
-	{0x0C, 0x0c, OUT_MODE_50MHZ, PUSH_PULL},	 //uart2 ck, PC12
+	{0x0b, 0x0d, INPUT_MODE, PULL_UP_DN},   		 //uart2 cts, PB13
+	{0x0b, 0x0e, OUT_MODE_50MHZ, SEC_PUSH_PULL},	 //uart2 rts, PB14
+	{0x0C, 0x0a, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart2 tx, PC10
+	{0x0C, 0x0b, INPUT_MODE, PULL_UP_DN},			 //uart2 rx, PC11
+	{0x0C, 0x0c, OUT_MODE_50MHZ, SEC_PUSH_PULL},	 //uart2 ck, PC12
 	//REGMAP = 11
-	{0x0D, 0x0B, INPUT_MODE, PUSH_PULL},   		 //uart2 cts, PD11
-	{0x0D, 0x0C, OUT_MODE_50MHZ, PUSH_PULL},	 //uart2 rts, PD12
-	{0x0D, 0x08, OUT_MODE_50MHZ, PUSH_PULL},   //uart2 tx, PD8
-	{0x0D, 0x09, INPUT_MODE, PUSH_PULL},			 //uart2 rx, PD9
-	{0x0D, 0x0A, OUT_MODE_50MHZ, PUSH_PULL},	 //uart2 ck, P10	
+	{0x0D, 0x0B, INPUT_MODE, PULL_UP_DN},   		 //uart2 cts, PD11
+	{0x0D, 0x0C, OUT_MODE_50MHZ, SEC_PUSH_PULL},	 //uart2 rts, PD12
+	{0x0D, 0x08, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart2 tx, PD8
+	{0x0D, 0x09, INPUT_MODE, PULL_UP_DN},			 //uart2 rx, PD9
+	{0x0D, 0x0A, OUT_MODE_50MHZ, SEC_PUSH_PULL},	 //uart2 ck, P10	
 };
 
 static const struct GPIO_CFG uart4_gpio_configuration[2] = {
-	{0x0c, 0x0a, OUT_MODE_50MHZ, PUSH_PULL},   //uart2 tx, PC10
-	{0x0c, 0x0b, INPUT_MODE, PUSH_PULL},			 //uart2 rx, PC11
+	{0x0c, 0x0a, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart2 tx, PC10
+	{0x0c, 0x0b, INPUT_MODE, PULL_UP_DN},			 //uart2 rx, PC11
 };
 static const struct GPIO_CFG uart5_gpio_configuration[2] = {
-	{0x0c, 0x0C, OUT_MODE_50MHZ, PUSH_PULL},   //uart2 tx, PC12
-	{0x0D, 0x02, INPUT_MODE, PUSH_PULL},			 //uart2 rx, PD2
+	{0x0c, 0x0C, OUT_MODE_50MHZ, SEC_PUSH_PULL},   //uart2 tx, PC12
+	{0x0D, 0x02, INPUT_MODE, PULL_UP_DN},			 //uart2 rx, PD2
 };
+#if 1
+#pragma import(__use_no_semihosting)             
+                
+struct __FILE 
+{ 
+	int handle; 
+	/* Whatever you require here. If the only file you are using is */ 
+	/* standard output using printf() for debugging, no file handling */ 
+	/* is required. */ 
+}; 
+/* FILE is typedef’ d in stdio.h. */ 
+FILE __stdout;       
+   
+_sys_exit(int x) 
+{ 
+	x = x; 
+} 
+//重定向fputc函数
+//printf的输出，指向fputc，由fputc输出到串口
+//这里使用串口1(USART1)输出printf信息
+int fputc(int ch, FILE *f)
+{      
+	while((USART1->SR&0X40)==0);//等待上一次串口数据发送完成  
+	USART1->DR = (u8) ch;      	//写DR,串口1将发送数据
+	return ch;
+}
+#endif 
+#if EN_USART1_RX   //如果使能了接收
+//串口1中断服务程序
+//注意,读取USARTx->SR能避免莫名其妙的错误   	
+u8 USART_RX_BUF[USART_REC_LEN];     //接收缓冲,最大USART_REC_LEN个字节.
+//接收状态
+//bit15，	接收完成标志
+//bit14，	接收到0x0d
+//bit13~0，	接收到的有效字节数目
+u16 USART_RX_STA=0;       //接收状态标记	  
+  
+void USART1_IRQHandler(void)
+{
+	u8 res;	
+#if SYSTEM_SUPPORT_OS 		//如果SYSTEM_SUPPORT_OS为真，则需要支持OS.
+	OSIntEnter();    
+#endif
+	if(USART1->SR&(1<<5))	//接收到数据
+	{	 
+		res=USART1->DR; 
+		if((USART_RX_STA&0x8000)==0)//接收未完成
+		{
+			if(USART_RX_STA&0x4000)//接收到了0x0d
+			{
+				if(res!=0x0a)USART_RX_STA=0;//接收错误,重新开始
+				else USART_RX_STA|=0x8000;	//接收完成了 
+			}else //还没收到0X0D
+			{	
+				if(res==0x0d)USART_RX_STA|=0x4000;
+				else
+				{
+					USART_RX_BUF[USART_RX_STA&0X3FFF]=res;
+					USART_RX_STA++;
+					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//接收数据错误,重新开始接收	  
+				}		 
+			}
+		}  		 									     
+	}
+#if SYSTEM_SUPPORT_OS 	//如果SYSTEM_SUPPORT_OS为真，则需要支持OS.
+	OSIntExit();  											 
+#endif
+} 
+#endif	
+
 /*
 *	uart_initialize()
 *	description:	initialize uart
@@ -117,6 +187,7 @@ int uart_initialize(void *p)
 			RCC->APB2RSTR |= 1 << 14;   // reset uart1
 			RCC->APB2RSTR &= ~(1 << 14);
 			
+			RCC->APB2ENR|=1<<2;
 			RCC->APB2ENR|=1<<14;  //enable uart1 clock
 			USART1->BRR = baudrate_m;		// set baudrate
 			

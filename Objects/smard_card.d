@@ -6,4 +6,5 @@
 .\objects\smard_card.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\smard_card.o: .\system\sys\system_stm32f10x.h
 .\objects\smard_card.o: .\system\uart\uart.h
+.\objects\smard_card.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\smard_card.o: .\system\gpio\gpio.h
